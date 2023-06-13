@@ -4,7 +4,7 @@ from config.settings.base import *  # noqa
 
 DEBUG = True
 
-SECRET_KEY = "uKSug2etxXWtLkPsAzzGKn6qxHQDAkYR7mM5Euj84Smm"
+SECRET_KEY = "y=x&59)5q)mg0y05xqi9@*-)nti8e8@b07e2wk@0l$a9+zhh-n"
 
 ALLOWED_HOSTS = []
 
