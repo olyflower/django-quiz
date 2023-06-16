@@ -33,6 +33,10 @@ class Quiz(BaseModel):
     def questions_count(self):
         return self.questions.count()
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        return super().save(*args, **kwargs)
+
 
 class Result(BaseModel):
     quiz = models.ForeignKey(to="quiz.Quiz", related_name="results", on_delete=models.CASCADE)
