@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from quiz.models import Question, Quiz, Result, Choice, Category
+from quiz.models import Category, Choice, Question, Quiz, Result
 
 admin.site.register([Quiz, Question, Result, Choice, Category])
