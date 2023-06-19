@@ -16,6 +16,9 @@ class Category(BaseModel):
     description = models.TextField(max_length=1000, blank=True, null=True)
     image = models.ImageField(upload_to="category/", blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Quiz(BaseModel):
     QUESTION_MAX_LIMIT = 20

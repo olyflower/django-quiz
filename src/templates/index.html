@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/f_icon.png' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -21,31 +23,31 @@
         <div class="header-container">
             <div class="nav-menu">
                 <ul>
-                    <li><a href="#">Categories</a></li>
+                    <li><a href="{% url 'quiz:categories' %}">Categories</a></li>
                     <li><a href="#">Popular quizzes</a></li>
                     <li><a href="#">Best players</a></li>
                     <li><a href="#">About</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="{% url 'account:logout' %}">Logout</a></li>
                     {% else %}
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Registration</a></li>
+                        <li><a href="{% url 'account:login' %}">Login</a></li>
+                        <li><a href="{% url 'account:registration' %}">Registration</a></li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </div>
 </header>
+{% block content %}
+    <main>
+        <section class="main">
 
-<main>
-    <section class="main">
 
+        </section>
 
-    </section>
-
-</main>
-
+    </main>
+{% endblock %}
 <footer>
     <div class="footer-wrapper">
         <div class="footer-container">

@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="form-wrapper">
+        <form method="POST" class="registration-form">
+            {% csrf_token %}
+            <h2>Registration</h2>
+            <div class="form-item">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-item">
+                <label for="id_password1">Password:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-item">
+                <label for="id_password2">Confirm Password:</label>
+                {{ form.password2 }}
+            </div>
+            <div class="form-button">
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

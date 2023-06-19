@@ -42,6 +42,9 @@ ROOT_URLCONF = "config.urls"
 
 AUTH_USER_MODEL = "account.Customer"
 
+LOGIN_REDIRECT_URL = "quiz:index"
+LOGOUT_REDIRECT_URL = "account:login"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

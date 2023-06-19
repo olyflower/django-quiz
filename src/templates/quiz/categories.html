@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+        <h1>Product List</h1>
+        <div>
+            {% for category in object_list %}
+
+                                <p class="title is-4">{{ product.name }}</p>
+                                <p class="subtitle is-6">{{ product.category }}</p>
+                            </div>
+
+                        <div class="content">
+                 <p>{{ category.name }}</p>
+                            <p>{{ category.description }}</p>
+
+
+
+            {% endfor %}
+        </div>
+
+
+
+{% endblock %}
