@@ -1,24 +1,27 @@
 {% extends "index.html" %}
+
 {% block content %}
-    <div class="form-wrapper">
-        <form method="POST" class="registration-form">
-            {% csrf_token %}
-            <h2>Registration</h2>
-            <div class="form-item">
-                <label for="id_email">Email:</label>
-                {{ form.email }}
-            </div>
-            <div class="form-item">
-                <label for="id_password1">Password:</label>
-                {{ form.password1 }}
-            </div>
-            <div class="form-item">
-                <label for="id_password2">Confirm Password:</label>
-                {{ form.password2 }}
-            </div>
-            <div class="form-button">
-                <button type="submit" class="button">Submit</button>
-            </div>
-        </form>
+<div class="container mt-5">
+    <div class="flex justify-center">
+        <div class="w-1/2">
+            <form method="POST" class="max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                {% csrf_token %}
+                <h2 class="text-2xl font-bold text-center mb-4">Registration</h2>
+                {{ form }}
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+<style>
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 0.25rem;
+        border: 1px solid #d2d6dc;
+        outline: none;
+    }
+</style>
 {% endblock %}

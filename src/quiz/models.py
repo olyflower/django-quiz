@@ -33,6 +33,9 @@ class Quiz(BaseModel):
     category = models.ForeignKey(to="quiz.Category", related_name="quizzes", on_delete=models.CASCADE)
     level = models.PositiveSmallIntegerField(choices=LEVEL_CHOICES.choices, default=LEVEL_CHOICES.BASIC)
 
+    def __str__(self):
+        return self.title
+
     def questions_count(self):
         return self.questions.count()
 

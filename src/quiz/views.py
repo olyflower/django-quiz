@@ -1,15 +1,12 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView
 
 from quiz.models import Category
 
 
 class IndexView(TemplateView):
-    template_name = "../templates/index.html"
-    http_method_names = ["get"]
-    extra_context = {"site_name": "Craft-Market"}
+    template_name = 'index.html'
 
-
-class CategoriesView(ListView):
-    redirect_field_name = "index"
-    template_name = "quiz/categories.html"
-    model = Category
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
