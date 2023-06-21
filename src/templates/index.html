@@ -42,7 +42,8 @@
                         <img src="{% static 'img/quiz.jpg' %}" alt="Category Image" width="200px" height="200px" class="mx-auto">
                     {% endif %}
                     <p>{{ category.description }}</p>
-                    <a href="{% url 'quiz:categories' pk=category.pk %}" class="text-blue-800">Choose this category</a>
+                    <br>
+                    <a href="{% url 'quiz:categories' pk=category.pk %}" class="text-blue-800">Choose quizzes in {{ category.name }}</a>
                 </li>
             {% endfor %}
         </ul>

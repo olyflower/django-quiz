@@ -1,1 +1,30 @@
+{% extends 'index.html' %}
 
+{% block content %}
+<main class="container mx-auto py-8 flex justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-3xl font-bold mb-6">{{ quiz.title }}</h2>
+        <form method="post" action="{% url 'quiz:submit' quiz.pk %}">
+            {% csrf_token %}
+            <ul class="space-y-4">
+                {% for question in quiz.questions.all %}
+                    <li>
+                        <p class="font-bold">{{ question.text }}</p>
+                        <ul class="ml-4 space-y-2">
+                            {% for choice in question.choices.all %}
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="question_{{ question.pk }}" value="{{ choice.pk }}" required>
+                                        <span class="ml-2">{{ choice.text }}</span>
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

@@ -7,7 +7,7 @@
         <ul class="space-y-4">
             {% for quiz in category.quizzes.all %}
                 <li>
-                    <a href="#" class="text-blue-800">{{ quiz.title }}</a>
+                    <a href="{% url 'quiz:quiz' quiz.pk %}" class="text-blue-800">{{ quiz.title }}</a>
                 </li>
             {% endfor %}
         </ul>
