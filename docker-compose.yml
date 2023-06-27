@@ -8,12 +8,11 @@ services:
     command:
       - ./commands/start_server_${MODE}.sh
     ports:
-      - 8010:8000
+      - ${LOCAL_PORT}:${WSGI_PORT}
     volumes:
       - ./src:/quiz/src
-      - ./commands:/quiz/commands
-      - static_content:/quiz/src/static_content
-      - media_content:/quiz/src/media_content
+      - static_content:/quiz/src/static1
+      - media_content:/quiz/src/media
     env_file:
       - .env
     depends_on:
